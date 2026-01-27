@@ -2,7 +2,7 @@
 
 ## The NYC Taxi Dataset
 
-URL = [tqdm](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz)
+URL = [CSV DataSet](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz)
 
 ## Running PostgreSQL in a Container
 
