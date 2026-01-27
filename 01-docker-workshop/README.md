@@ -1,5 +1,9 @@
 # Docker Workshop
 
+## The NYC Taxi Dataset
+
+URL = [tqdm](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz)
+
 ## Running PostgreSQL in a Container
 
 Create a folder anywhere you'd like for Postgres to store data in. We will use the example folder `ny_taxi_postgres_data`. Here's how to run the container:
