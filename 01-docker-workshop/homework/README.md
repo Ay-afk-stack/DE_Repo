@@ -124,3 +124,57 @@ Which was the pickup zone with the largest `total_amount` (sum of all trips) on 
 - East Harlem South
 - Morningside Heights
 - Forest Hills
+
+## Answer -> East Harlem North
+
+```sql
+
+SET search_path TO public;
+
+SELECT
+    z."Zone",
+    SUM(t.total_amount) AS sum_amount
+FROM nov_trips t
+LEFT JOIN nov_zones z
+ON t."PULocationID" = z."LocationID"
+WHERE t.lpep_pickup_datetime::DATE = '2025-11-18'
+GROUP BY z."Zone"
+ORDER BY sum_amount DESC
+LIMIT 5;
+
+```
+
+
+## Question 6. Largest tip
+
+For the passengers picked up in the zone named "East Harlem North" in November 2025, which was the drop off zone that had the largest tip?
+
+Note: it's `tip` , not `trip`. We need the name of the zone, not the ID.
+
+- JFK Airport
+- Yorkville West
+- East Harlem North
+- LaGuardia Airport
+- 
+## Answer -> Yorkville West
+
+``` sql
+
+-- Question 6 -> Answer: Yorkville West
+SET search_path TO public;
+
+SELECT
+    pz."Zone",
+    dz."Zone",
+    MAX(tip_amount) AS total_amount
+FROM nov_trips t
+LEFT JOIN nov_zones pz
+ON t."PULocationID" = pz."LocationID"
+LEFT JOIN nov_zones dz
+ON t."DOLocationID" = dz."LocationID"
+WHERE pz."Zone" = 'East Harlem North'
+GROUP BY pz."Zone", dz."Zone"
+ORDER BY total_amount DESC
+LIMIT 1;
+
+```
